@@ -1,13 +1,14 @@
 import React from "react";
-import { Routes } from "react-router-dom";
+import Main from "@app/modules/main/Main";
+import {Route, Routes} from "react-router-dom";
 
 const Router = () => {
 
     return (
         <>
-        <Routes>
-
-        </Routes>
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+            </Routes>
         </>
     );
 }
