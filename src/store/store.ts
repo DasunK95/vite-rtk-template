@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import { apiSlice } from "@app/store/api/apiSlice";
+import logger from 'redux-logger'
 
 import {persistReducer, persistStore} from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -15,8 +15,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
     reducer: persistedReducer,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false}).concat(apiSlice.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     devTools: true
 })
 
-export const persistor = persistStore(store);
+export const presistor = persistStore(store);
